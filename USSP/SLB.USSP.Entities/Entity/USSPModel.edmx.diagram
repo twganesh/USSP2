@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de3e7104d35d4a80ad44c56823d37feb" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="USSPModel.WSSE_SHIP" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="USSPModel.T_PROD_WITH_INPUT_PROD" Width="1.5" PointX="3.375" PointY="1" />
+        <EntityTypeShape EntityType="USSPModel.T_PROD_WITH_INPUT_PROD_GROUPS" Width="1.5" PointX="5.625" PointY="1.5" />
+        <AssociationConnector Association="USSPModel.FK_T_PROD_WIPG" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_DOT_SHIP" Width="1.5" PointX="3" PointY="8" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_LOGGER" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_MAT_SHIP" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_PICKLISTS" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_RAD_CONFIG" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_RAD_DETAILS" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_RAD_LABELS" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_RAD_SHIP" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_USER" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_USERMAP" Width="1.5" PointX="10.375" PointY="0.75" />
+        <AssociationConnector Association="USSPModel.SYS_C0016353" />
+        <AssociationConnector Association="USSPModel.WSSE_MAT_SHIP_FK31127846896883" />
+        <AssociationConnector Association="USSPModel.WSSE_SHIP_MAT_FK21126408897734" />
+        <AssociationConnector Association="USSPModel.FK_WSSE_RAD_SHIP" />
+        <AssociationConnector Association="USSPModel.WSSE_SHIP_FK21126408714187" />
+        <EntityTypeShape EntityType="USSPModel.W_PROD_WITH_INPUT_PROD" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_SHIP_KINETIX_VW" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="USSPModel.IPC_FEEDBACK" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="USSPModel.IPC_FEEDBACK_CATEGORY" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="USSPModel.IPC_FEEDBACK_PICKLISTS" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="USSPModel.IPC_FEEDBACK_PROJUSERS" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="USSPModel.IPC_FEEDBACK_USERMAP" Width="1.5" PointX="13.375" PointY="9.75" />
+        <EntityTypeShape EntityType="USSPModel.IPC_FEEDBACK_USERS" Width="1.5" PointX="13.375" PointY="12.75" />
+        <EntityTypeShape EntityType="USSPModel.T_PHRASE_LINKAGE" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="USSPModel.T_PHRASE_TRANSLATIONS" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="USSPModel.T_PROD_TEXT" Width="1.5" PointX="7.75" PointY="14.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_MESSAGE" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="USSPModel.WSSE_TMS_PRODUCTS" Width="1.5" PointX="15.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

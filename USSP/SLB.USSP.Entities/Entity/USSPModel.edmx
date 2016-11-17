@@ -1,0 +1,1882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="USSPModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IPC_FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="PROJECTID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="PRIORITYID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="STATUSID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar2" MaxLength="250" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="2000" />
+          <Property Name="RESOLUTION" Type="varchar2" MaxLength="2000" />
+          <Property Name="ASSIGNED_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="ASSIGNED_TO" Type="varchar2" MaxLength="50" />
+          <Property Name="DATE_ASSIGNED" Type="date" />
+          <Property Name="DATE_RESOLVED" Type="date" />
+          <Property Name="UPDATE_DATE" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="CATEGORYID" Type="number" Precision="20" Scale="0" />
+          <Property Name="CREATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATE_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="PROJECTID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="VALUE" Type="varchar2" MaxLength="250" />
+          <Property Name="SORTORDER" Type="number" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_PICKLISTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="VALUE" Type="varchar2" MaxLength="50" />
+          <Property Name="SORTORDER" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_PROJUSERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="PROJECTID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_USERMAP">
+          <Key>
+            <PropertyRef Name="USERLEVEL" />
+          </Key>
+          <Property Name="USERLEVEL" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="INFO" Type="varchar2" MaxLength="250" />
+          <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="SORT" Type="number" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_USERS">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERLEVEL" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="250" />
+          <Property Name="NAME" Type="varchar2" MaxLength="250" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="LOCKED" Type="number" Precision="38" Scale="0" />
+          <Property Name="LOCATIONLDAP" Type="varchar2" MaxLength="250" />
+          <Property Name="OU" Type="varchar2" MaxLength="250" />
+          <Property Name="MANAGER" Type="varchar2" MaxLength="50" />
+          <Property Name="ACTIVE" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_PHRASE_LINKAGE">
+          <Key>
+            <PropertyRef Name="F_LINK_ID" />
+          </Key>
+          <Property Name="F_LINK_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="F_PHRASE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="F_DATA_CODE" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="F_TEXT_CODE" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="F_TEXT_TYPE" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="F_SEVERITY" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="F_COMMENTS" Type="varchar2" MaxLength="4000" />
+          <Property Name="F_STATUS" Type="number" Precision="2" Scale="0" />
+          <Property Name="F_USER_REQUESTED" Type="varchar2" MaxLength="15" />
+          <Property Name="F_USER_ADDED" Type="varchar2" MaxLength="15" />
+          <Property Name="F_USER_UPDATED" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="F_DATE_STAMP" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_PHRASE_TRANSLATIONS">
+          <Key>
+            <PropertyRef Name="F_TRANSLATION_ID" />
+          </Key>
+          <Property Name="F_TRANSLATION_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="F_PHRASE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="F_LANGUAGE" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="F_PHRASE" Type="varchar2" MaxLength="4000" Nullable="false" />
+          <Property Name="F_COMMENTS" Type="varchar2" MaxLength="2000" />
+          <Property Name="F_USER_REQUESTED" Type="varchar2" MaxLength="15" />
+          <Property Name="F_USER_ADDED" Type="varchar2" MaxLength="15" />
+          <Property Name="F_USER_UPDATED" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="F_DATE_STAMP" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_PROD_TEXT">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_FORMAT" />
+            <PropertyRef Name="F_TEXT_CODE" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="F_FORMAT" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="F_TEXT_CODE" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="F_DATE_STAMP" Type="date" />
+          <Property Name="F_DATA_CODE" Type="varchar2" MaxLength="8" />
+          <Property Name="F_COUNTER" Type="number" Precision="10" Scale="0" />
+          <Property Name="F_USER_UPDATED" Type="varchar2" MaxLength="15" />
+          <Property Name="F_JOIN_BY" Type="varchar2" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="T_PROD_WITH_INPUT_PROD">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_INPUT_PRODUCT" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="F_INPUT_PRODUCT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="F_PERCENT" Type="number" Precision="20" Scale="10" />
+          <Property Name="F_PRODUCT_NAME" Type="varchar2" MaxLength="2000" />
+          <Property Name="F_USER_UPDATED" Type="varchar2" MaxLength="15" />
+          <Property Name="F_DATE_STAMP" Type="date" />
+          <Property Name="F_SORTORDER" Type="number" Precision="38" Scale="0" />
+          <Property Name="F_FROM_PERCENT" Type="number" Precision="30" Scale="10" />
+          <Property Name="F_REQUIRED" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="F_INPUT_PRODUCT_MODEL" Type="varchar2" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="T_PROD_WITH_INPUT_PROD_GROUPS">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_INPUT_PRODUCT" />
+            <PropertyRef Name="F_GROUPID" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="F_INPUT_PRODUCT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="F_GROUPID" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="F_REQUIRED" Type="number" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WSSE_DOT_SHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="CAT" Type="varchar2" MaxLength="50" />
+          <Property Name="PRODUCT" Type="varchar2" MaxLength="50" />
+          <Property Name="ACTUAL_QTY" Type="float" Precision="126" Scale="0" />
+          <Property Name="ACTUAL_UNIT" Type="varchar2" MaxLength="5" />
+          <Property Name="PACKTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="PACKNO" Type="number" Precision="20" Scale="0" />
+          <Property Name="ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="SHIPID" Type="number" Precision="20" Scale="0" />
+          <Property Name="SORT" Type="number" Precision="20" Scale="0" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="BULKITEM" Type="varchar2" MaxLength="3" />
+          <Property Name="LOTNO" Type="varchar2" MaxLength="250" />
+          <Property Name="TANKNO" Type="varchar2" MaxLength="250" />
+          <Property Name="SLINGNO" Type="varchar2" MaxLength="250" />
+          <Property Name="SLINGDATE" Type="date" />
+          <Property Name="PACKLOC" Type="varchar2" MaxLength="10" />
+          <Property Name="RESIDUE" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="ORDER_RELEASE_ID" Type="varchar2" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="WSSE_LOGGER">
+          <Key>
+            <PropertyRef Name="LOGGER_ID" />
+          </Key>
+          <Property Name="LOGGER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LOGGER_DATE" Type="date" />
+          <Property Name="LOGGER_LOCATION" Type="varchar2" MaxLength="100" />
+          <Property Name="LOGGER_IP" Type="varchar2" MaxLength="50" />
+          <Property Name="LOGGER_EXECUTION_TIME" Type="number" Precision="38" Scale="0" />
+          <Property Name="LOGGER_DOC_COUNT" Type="number" Precision="38" Scale="0" />
+          <Property Name="LOGGER_PAGE_TYPE" Type="varchar2" MaxLength="100" />
+          <Property Name="LOGGER_ALIAS" Type="varchar2" MaxLength="50" />
+          <Property Name="LOGGER_BROWSER" Type="varchar2" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="WSSE_MAT_SHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="PRODUCT" Type="varchar2" MaxLength="50" />
+          <Property Name="WT_VOL" Type="float" Precision="126" Scale="0" />
+          <Property Name="WT_VOL_UNIT" Type="varchar2" MaxLength="5" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="date" Nullable="false" />
+          <Property Name="SHIPID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="SORTORDER" Type="number" Precision="20" Scale="0" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="1000" />
+          <Property Name="DOT_SHIPID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="DRY_BLEND" Type="number" Precision="1" Scale="0" />
+          <Property Name="CONCENTRATION" Type="float" Precision="126" Scale="0" />
+        </EntityType>
+        <EntityType Name="WSSE_MESSAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="DATEBEGIN" Type="date" />
+          <Property Name="DATEEND" Type="date" />
+          <Property Name="MESSAGE" Type="varchar2" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="WSSE_PICKLISTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="VALUE" Type="varchar2" MaxLength="50" />
+          <Property Name="SORTORDER" Type="number" Precision="10" Scale="0" />
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_CONFIG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar2" MaxLength="250" />
+          <Property Name="DISABLE_ALL" Type="number" Precision="38" Scale="0" />
+          <Property Name="INCLUDE" Type="varchar2" MaxLength="250" />
+          <Property Name="SORT_ORDER" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MODEL_DESC" Type="varchar2" MaxLength="250" />
+          <Property Name="SHIP_DESC" Type="varchar2" MaxLength="1000" />
+          <Property Name="RADIONUCLIDE" Type="varchar2" MaxLength="250" />
+          <Property Name="TRANSPORT_INDEX" Type="varchar2" MaxLength="250" />
+          <Property Name="PACKAGE_TYPE" Type="varchar2" MaxLength="250" />
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACTIVITY" Type="varchar2" MaxLength="250" />
+          <Property Name="GROSS_WT" Type="varchar2" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_LABELS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MODEL_DESC" Type="varchar2" MaxLength="250" />
+          <Property Name="LABEL" Type="varchar2" MaxLength="250" />
+          <Property Name="HAZ_TYPE" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="IMAGE_NAME" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_SHIP">
+          <Key>
+            <PropertyRef Name="SHIPID" />
+            <PropertyRef Name="SORT_ORDER" />
+            <PropertyRef Name="CONFIG_ID" />
+          </Key>
+          <Property Name="MODEL_NO" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="SERIAL_NO" Type="varchar2" MaxLength="255" />
+          <Property Name="SHIPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SORT_ORDER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CONFIG_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WSSE_SHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="WELLSITE" Type="varchar2" MaxLength="50" />
+          <Property Name="DISTRICT" Type="varchar2" MaxLength="50" />
+          <Property Name="OPERATOR" Type="varchar2" MaxLength="250" />
+          <Property Name="SHIP_DATE" Type="date" />
+          <Property Name="TREATMENT" Type="varchar2" MaxLength="250" />
+          <Property Name="TRUCK_NO" Type="varchar2" MaxLength="250" />
+          <Property Name="TRAILER_NO" Type="varchar2" MaxLength="250" />
+          <Property Name="CUSTOMER" Type="varchar2" MaxLength="250" />
+          <Property Name="LOCATION" Type="varchar2" MaxLength="250" />
+          <Property Name="WELL" Type="varchar2" MaxLength="500" />
+          <Property Name="INSTRUCTIONS" Type="varchar2" MaxLength="4000" />
+          <Property Name="EXEMPT" Type="varchar2" MaxLength="250" />
+          <Property Name="SAFETY" Type="varchar2" MaxLength="1000" />
+          <Property Name="LOAD_DATE" Type="date" />
+          <Property Name="RETURN_DATE" Type="date" />
+          <Property Name="SUPERVISOR" Type="varchar2" MaxLength="250" />
+          <Property Name="USERID" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="VERSION" Type="float" Precision="126" Scale="0" />
+          <Property Name="CREATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="LOAD_DIFF" Type="number" Precision="20" Scale="0" />
+          <Property Name="TMP_EDIT" Type="varchar2" MaxLength="1" />
+          <Property Name="CERT_SIGN" Type="varchar2" MaxLength="250" />
+          <Property Name="LOAD_SIGN" Type="varchar2" MaxLength="250" />
+          <Property Name="RADIOACTIVE" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="ARCHIVED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COLORADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SHIPMENT_ID" Type="varchar2" MaxLength="250" />
+          <Property Name="STOP_NUMBER" Type="varchar2" MaxLength="250" />
+          <Property Name="ORIGIN" Type="varchar2" MaxLength="250" />
+          <Property Name="DESTINATION" Type="varchar2" MaxLength="250" />
+          <Property Name="NUM_OF_PRODUCTS_TMS" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WERCS.WSSE_TMS_PRODUCTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WSSE_TMS_PRODUCTS">
+          <Key>
+            <PropertyRef Name="SHIPMENT_ID" />
+            <PropertyRef Name="SHIPID" />
+            <PropertyRef Name="ISDELETED" />
+          </Key>
+          <Property Name="SHIPMENT_ID" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="SOURCE" Type="varchar2" MaxLength="250" />
+          <Property Name="DESTINATION" Type="varchar2" MaxLength="250" />
+          <Property Name="STOP_NUMBER" Type="varchar2" MaxLength="20" />
+          <Property Name="PRODUCT_CODE" Type="varchar2" MaxLength="250" />
+          <Property Name="DATESTAMP" Type="varchar2" MaxLength="30" />
+          <Property Name="SHIPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ISDELETED" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WSSE_USER">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERLEVEL" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="250" />
+          <Property Name="NAME" Type="varchar2" MaxLength="250" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="LOCKED" Type="number" Precision="38" Scale="0" />
+          <Property Name="LOCATIONLDAP" Type="varchar2" MaxLength="250" />
+          <Property Name="TRAINING_COMPLETE" Type="date" />
+          <Property Name="LASTLOGIN" Type="date" />
+          <Property Name="DELETED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="date" />
+          <Property Name="DELETED_BY" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WSSE_USERMAP">
+          <Key>
+            <PropertyRef Name="USERLEVEL" />
+          </Key>
+          <Property Name="USERLEVEL" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="INFO" Type="varchar2" MaxLength="250" />
+          <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+          <Property Name="UPDATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="SORT" Type="number" Precision="1" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WERCS.W_PROD_WITH_INPUT_PROD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="W_PROD_WITH_INPUT_PROD">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_INPUT_PRODUCT" />
+            <PropertyRef Name="F_REQUIRED" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="F_INPUT_PRODUCT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="F_PERCENT" Type="number" Precision="20" Scale="10" />
+          <Property Name="F_PRODUCT_NAME" Type="varchar2" MaxLength="2000" />
+          <Property Name="F_USER_UPDATED" Type="varchar2" MaxLength="15" />
+          <Property Name="F_DATE_STAMP" Type="date" />
+          <Property Name="F_SORTORDER" Type="number" Precision="38" Scale="0" />
+          <Property Name="F_FROM_PERCENT" Type="number" Precision="30" Scale="10" />
+          <Property Name="F_REQUIRED" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="F_INPUT_PRODUCT_MODEL" Type="varchar2" MaxLength="8" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WERCS.WSSE_SHIP_KINETIX_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WSSE_SHIP_KINETIX_VW">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ARCHIVED" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="RADIOACTIVE" Type="number" Precision="38" Scale="0" />
+          <Property Name="COLORADO" Type="number" Precision="38" Scale="0" />
+          <Property Name="WELLSITE" Type="varchar2" MaxLength="50" />
+          <Property Name="DISTRICT" Type="varchar2" MaxLength="50" />
+          <Property Name="OPERATOR" Type="varchar2" MaxLength="250" />
+          <Property Name="SHIP_DATE" Type="date" />
+          <Property Name="TREATMENT" Type="varchar2" MaxLength="250" />
+          <Property Name="TRUCK_NO" Type="varchar2" MaxLength="250" />
+          <Property Name="TRAILER_NO" Type="varchar2" MaxLength="250" />
+          <Property Name="CUSTOMER" Type="varchar2" MaxLength="250" />
+          <Property Name="LOCATION" Type="varchar2" MaxLength="250" />
+          <Property Name="WELL" Type="varchar2" MaxLength="500" />
+          <Property Name="INSTRUCTIONS" Type="varchar2" MaxLength="4000" />
+          <Property Name="SAFETY" Type="varchar2" MaxLength="1000" />
+          <Property Name="LOAD_DATE" Type="date" />
+          <Property Name="LOAD_DIFF" Type="number" Precision="20" Scale="0" />
+          <Property Name="RETURN_DATE" Type="date" />
+          <Property Name="SUPERVISOR" Type="varchar2" MaxLength="250" />
+          <Property Name="USERID" Type="varchar2" MaxLength="50" />
+          <Property Name="CERT_SIGN" Type="varchar2" MaxLength="250" />
+          <Property Name="LOAD_SIGN" Type="varchar2" MaxLength="250" />
+          <Property Name="TMP_EDIT" Type="varchar2" MaxLength="1" />
+          <Property Name="CREATE_BY" Type="varchar2" MaxLength="50" />
+          <Property Name="SHIPMENT_ID" Type="varchar2" MaxLength="250" />
+          <Property Name="STOP_NUMBER" Type="varchar2" MaxLength="250" />
+          <Property Name="ORIGIN" Type="varchar2" MaxLength="250" />
+          <Property Name="DESTINATION" Type="varchar2" MaxLength="250" />
+          <Property Name="NUM_OF_PRODUCTS_TMS" Type="number" Precision="38" Scale="0" />
+          <Property Name="ARCHIVED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CAT" Type="varchar2" MaxLength="50" />
+          <Property Name="PROD_CODE" Type="varchar2" MaxLength="50" />
+          <Property Name="ORDER_RELEASE_ID" Type="varchar2" MaxLength="250" />
+          <Property Name="ACTUAL_QTY" Type="float" Precision="126" Scale="0" />
+          <Property Name="ACTUAL_UNIT" Type="varchar2" MaxLength="5" />
+          <Property Name="PACKTYPE" Type="varchar2" MaxLength="50" />
+          <Property Name="PACKLOC" Type="varchar2" MaxLength="10" />
+          <Property Name="PACKNO" Type="number" Precision="20" Scale="0" />
+          <Property Name="BULKITEM" Type="varchar2" MaxLength="3" />
+          <Property Name="DOTSHIPID" Type="number" Precision="20" Scale="0" />
+          <Property Name="LOTNO" Type="varchar2" MaxLength="250" />
+          <Property Name="TANKNO" Type="varchar2" MaxLength="250" />
+          <Property Name="SLINGNO" Type="varchar2" MaxLength="250" />
+          <Property Name="SLINGDATE" Type="date" />
+          <Property Name="RESIDUE" Type="number" Precision="1" Scale="0" />
+          <Property Name="SORT" Type="number" Precision="20" Scale="0" />
+          <Property Name="MODEL_DESC" Type="varchar2" MaxLength="250" />
+          <Property Name="SERIAL_NO" Type="varchar2" MaxLength="255" />
+          <Property Name="SORT_ORDER" Type="number" Precision="38" Scale="0" />
+          <Property Name="CONFIG_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="CONFIG_NAME" Type="varchar2" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_T_PROD_WIPG">
+          <End Role="T_PROD_WITH_INPUT_PROD" Type="Self.T_PROD_WITH_INPUT_PROD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_PROD_WITH_INPUT_PROD_GROUPS" Type="Self.T_PROD_WITH_INPUT_PROD_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PROD_WITH_INPUT_PROD">
+              <PropertyRef Name="F_PRODUCT" />
+              <PropertyRef Name="F_INPUT_PRODUCT" />
+            </Principal>
+            <Dependent Role="T_PROD_WITH_INPUT_PROD_GROUPS">
+              <PropertyRef Name="F_PRODUCT" />
+              <PropertyRef Name="F_INPUT_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WSSE_RAD_SHIP">
+          <End Role="WSSE_SHIP" Type="Self.WSSE_SHIP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WSSE_RAD_SHIP" Type="Self.WSSE_RAD_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_RAD_SHIP">
+              <PropertyRef Name="SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C0016353">
+          <End Role="WSSE_SHIP" Type="Self.WSSE_SHIP" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WSSE_DOT_SHIP" Type="Self.WSSE_DOT_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_DOT_SHIP">
+              <PropertyRef Name="SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WSSE_MAT_SHIP_FK31127846896883">
+          <End Role="WSSE_DOT_SHIP" Type="Self.WSSE_DOT_SHIP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WSSE_MAT_SHIP" Type="Self.WSSE_MAT_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_DOT_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_MAT_SHIP">
+              <PropertyRef Name="DOT_SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WSSE_SHIP_FK21126408714187">
+          <End Role="WSSE_USER" Type="Self.WSSE_USER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WSSE_SHIP" Type="Self.WSSE_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_USER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="WSSE_SHIP">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WSSE_SHIP_MAT_FK21126408897734">
+          <End Role="WSSE_SHIP" Type="Self.WSSE_SHIP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WSSE_MAT_SHIP" Type="Self.WSSE_MAT_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_MAT_SHIP">
+              <PropertyRef Name="SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DOTSHIPINSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="WERCS">
+          <Parameter Name="ICAT" Type="varchar2" Mode="In" />
+          <Parameter Name="IPRODUCT" Type="varchar2" Mode="In" />
+          <Parameter Name="IORDERRELEASEID" Type="varchar2" Mode="In" />
+          <Parameter Name="IACTUAL_QTY" Type="float" Mode="In" />
+          <Parameter Name="IACTUAL_UNIT" Type="varchar2" Mode="In" />
+          <Parameter Name="IPACKTYPE" Type="varchar2" Mode="In" />
+          <Parameter Name="IPACKLOC" Type="varchar2" Mode="In" />
+          <Parameter Name="IPACKNO" Type="number" Mode="In" />
+          <Parameter Name="IBULKITEM" Type="varchar2" Mode="In" />
+          <Parameter Name="ISHIPID" Type="number" Mode="In" />
+          <Parameter Name="ISORT" Type="number" Mode="In" />
+          <Parameter Name="IRESIDUE" Type="number" Mode="In" />
+          <Parameter Name="IUPDATE_BY" Type="varchar2" Mode="In" />
+          <Parameter Name="ODOTSHIPID" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="GETSHIPMENTKINETIX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="WERCS">
+          <Parameter Name="P_IN_SHIPMENTID" Type="varchar2" Mode="In" />
+          <Parameter Name="P_IN_STOPNUMBER" Type="varchar2" Mode="In" />
+          <Parameter Name="P_IN_ORIGIN" Type="varchar2" Mode="In" />
+          <Parameter Name="P_IN_DESTINATION" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SHIPINSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="WERCS">
+          <Parameter Name="IWELLSITE" Type="varchar2" Mode="In" />
+          <Parameter Name="IDISTRICT" Type="varchar2" Mode="In" />
+          <Parameter Name="IOPERATOR" Type="varchar2" Mode="In" />
+          <Parameter Name="ISHIP_DATE" Type="varchar2" Mode="In" />
+          <Parameter Name="ITREATMENT" Type="varchar2" Mode="In" />
+          <Parameter Name="ITRUCK_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="ITRAILER_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="ICUSTOMER" Type="varchar2" Mode="In" />
+          <Parameter Name="ILOCATION" Type="varchar2" Mode="In" />
+          <Parameter Name="IWELL" Type="varchar2" Mode="In" />
+          <Parameter Name="IINSTRUCTIONS" Type="varchar2" Mode="In" />
+          <Parameter Name="ISAFETY" Type="varchar2" Mode="In" />
+          <Parameter Name="ISUPERVISOR" Type="varchar2" Mode="In" />
+          <Parameter Name="IUSERID" Type="varchar2" Mode="In" />
+          <Parameter Name="ICREATE_BY" Type="varchar2" Mode="In" />
+          <Parameter Name="ILOAD_DIFF" Type="number" Mode="In" />
+          <Parameter Name="IRETURN_DATE" Type="varchar2" Mode="In" />
+          <Parameter Name="IVERSION" Type="float" Mode="In" />
+          <Parameter Name="ICERT_SIGN" Type="varchar2" Mode="In" />
+          <Parameter Name="ILOAD_SIGN" Type="varchar2" Mode="In" />
+          <Parameter Name="ISHIPMENTID" Type="varchar2" Mode="In" />
+          <Parameter Name="ISTOPNUMBER" Type="varchar2" Mode="In" />
+          <Parameter Name="IORIGIN" Type="varchar2" Mode="In" />
+          <Parameter Name="IDESTINATION" Type="varchar2" Mode="In" />
+          <Parameter Name="INUMOFSTOPSTMS" Type="number" Mode="In" />
+          <Parameter Name="IRADIOACTIVE" Type="number" Mode="In" />
+          <Parameter Name="ICOLORADO" Type="number" Mode="In" />
+          <Parameter Name="OSHIPID" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="SHIPUPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="WERCS">
+          <Parameter Name="IWELLSITE" Type="varchar2" Mode="In" />
+          <Parameter Name="IDISTRICT" Type="varchar2" Mode="In" />
+          <Parameter Name="IOPERATOR" Type="varchar2" Mode="In" />
+          <Parameter Name="ISHIP_DATE" Type="date" Mode="In" />
+          <Parameter Name="ITREATMENT" Type="varchar2" Mode="In" />
+          <Parameter Name="ITRUCK_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="ITRAILER_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="ICUSTOMER" Type="varchar2" Mode="In" />
+          <Parameter Name="ILOCATION" Type="varchar2" Mode="In" />
+          <Parameter Name="IWELL" Type="varchar2" Mode="In" />
+          <Parameter Name="IINSTRUCTIONS" Type="varchar2" Mode="In" />
+          <Parameter Name="ISAFETY" Type="varchar2" Mode="In" />
+          <Parameter Name="ISUPERVISOR" Type="varchar2" Mode="In" />
+          <Parameter Name="IUSERID" Type="varchar2" Mode="In" />
+          <Parameter Name="IUPDATE_BY" Type="varchar2" Mode="In" />
+          <Parameter Name="ILOAD_DIFF" Type="number" Mode="In" />
+          <Parameter Name="IRETURN_DATE" Type="date" Mode="In" />
+          <Parameter Name="IVERSION" Type="float" Mode="In" />
+          <Parameter Name="ICERT_SIGN" Type="varchar2" Mode="In" />
+          <Parameter Name="ILOAD_SIGN" Type="varchar2" Mode="In" />
+          <Parameter Name="IRADIOACTIVE" Type="number" Mode="In" />
+          <Parameter Name="ICOLORADO" Type="number" Mode="In" />
+          <Parameter Name="ISHIPID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="TMSPRODUCTINSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="WERCS">
+          <Parameter Name="ISHIPMENTID" Type="varchar2" Mode="In" />
+          <Parameter Name="ISOURCE" Type="varchar2" Mode="In" />
+          <Parameter Name="IDESTINATION" Type="varchar2" Mode="In" />
+          <Parameter Name="ISTOPNUMBER" Type="varchar2" Mode="In" />
+          <Parameter Name="IPRODUCTCODE" Type="varchar2" Mode="In" />
+          <Parameter Name="ISHIPID" Type="number" Mode="In" />
+          <Parameter Name="IISDELETED" Type="number" Mode="In" />
+        </Function>
+        <EntityContainer Name="USSPModelStoreContainer">
+          <EntitySet Name="IPC_FEEDBACK" EntityType="Self.IPC_FEEDBACK" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="IPC_FEEDBACK_CATEGORY" EntityType="Self.IPC_FEEDBACK_CATEGORY" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="IPC_FEEDBACK_PICKLISTS" EntityType="Self.IPC_FEEDBACK_PICKLISTS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="IPC_FEEDBACK_PROJUSERS" EntityType="Self.IPC_FEEDBACK_PROJUSERS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="IPC_FEEDBACK_USERMAP" EntityType="Self.IPC_FEEDBACK_USERMAP" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="IPC_FEEDBACK_USERS" EntityType="Self.IPC_FEEDBACK_USERS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="T_PHRASE_LINKAGE" EntityType="Self.T_PHRASE_LINKAGE" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="T_PHRASE_TRANSLATIONS" EntityType="Self.T_PHRASE_TRANSLATIONS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="T_PROD_TEXT" EntityType="Self.T_PROD_TEXT" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="T_PROD_WITH_INPUT_PROD" EntityType="Self.T_PROD_WITH_INPUT_PROD" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="T_PROD_WITH_INPUT_PROD_GROUPS" EntityType="Self.T_PROD_WITH_INPUT_PROD_GROUPS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_DOT_SHIP" EntityType="Self.WSSE_DOT_SHIP" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_LOGGER" EntityType="Self.WSSE_LOGGER" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_MAT_SHIP" EntityType="Self.WSSE_MAT_SHIP" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_MESSAGE" EntityType="Self.WSSE_MESSAGE" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_PICKLISTS" EntityType="Self.WSSE_PICKLISTS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_RAD_CONFIG" EntityType="Self.WSSE_RAD_CONFIG" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_RAD_DETAILS" EntityType="Self.WSSE_RAD_DETAILS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_RAD_LABELS" EntityType="Self.WSSE_RAD_LABELS" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_RAD_SHIP" EntityType="Self.WSSE_RAD_SHIP" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_SHIP" EntityType="Self.WSSE_SHIP" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_USER" EntityType="Self.WSSE_USER" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_USERMAP" EntityType="Self.WSSE_USERMAP" Schema="WERCS" store:Type="Tables" />
+          <EntitySet Name="WSSE_TMS_PRODUCTS" EntityType="Self.WSSE_TMS_PRODUCTS" store:Type="Tables" store:Schema="WERCS">
+            <DefiningQuery>SELECT 
+"WSSE_TMS_PRODUCTS"."SHIPMENT_ID" AS "SHIPMENT_ID", 
+"WSSE_TMS_PRODUCTS"."SOURCE" AS "SOURCE", 
+"WSSE_TMS_PRODUCTS"."DESTINATION" AS "DESTINATION", 
+"WSSE_TMS_PRODUCTS"."STOP_NUMBER" AS "STOP_NUMBER", 
+"WSSE_TMS_PRODUCTS"."PRODUCT_CODE" AS "PRODUCT_CODE", 
+"WSSE_TMS_PRODUCTS"."DATESTAMP" AS "DATESTAMP", 
+"WSSE_TMS_PRODUCTS"."SHIPID" AS "SHIPID", 
+"WSSE_TMS_PRODUCTS"."ISDELETED" AS "ISDELETED"
+FROM "WERCS"."WSSE_TMS_PRODUCTS" "WSSE_TMS_PRODUCTS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="W_PROD_WITH_INPUT_PROD" EntityType="Self.W_PROD_WITH_INPUT_PROD" store:Type="Views" store:Schema="WERCS">
+            <DefiningQuery>SELECT 
+"W_PROD_WITH_INPUT_PROD"."F_PRODUCT" AS "F_PRODUCT", 
+"W_PROD_WITH_INPUT_PROD"."F_INPUT_PRODUCT" AS "F_INPUT_PRODUCT", 
+"W_PROD_WITH_INPUT_PROD"."F_PERCENT" AS "F_PERCENT", 
+"W_PROD_WITH_INPUT_PROD"."F_PRODUCT_NAME" AS "F_PRODUCT_NAME", 
+"W_PROD_WITH_INPUT_PROD"."F_USER_UPDATED" AS "F_USER_UPDATED", 
+"W_PROD_WITH_INPUT_PROD"."F_DATE_STAMP" AS "F_DATE_STAMP", 
+"W_PROD_WITH_INPUT_PROD"."F_SORTORDER" AS "F_SORTORDER", 
+"W_PROD_WITH_INPUT_PROD"."F_FROM_PERCENT" AS "F_FROM_PERCENT", 
+"W_PROD_WITH_INPUT_PROD"."F_REQUIRED" AS "F_REQUIRED", 
+"W_PROD_WITH_INPUT_PROD"."F_INPUT_PRODUCT_MODEL" AS "F_INPUT_PRODUCT_MODEL"
+FROM "WERCS"."W_PROD_WITH_INPUT_PROD" "W_PROD_WITH_INPUT_PROD"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WSSE_SHIP_KINETIX_VW" EntityType="Self.WSSE_SHIP_KINETIX_VW" store:Type="Views" store:Schema="WERCS">
+            <DefiningQuery>SELECT 
+"WSSE_SHIP_KINETIX_VW"."ID" AS "ID", 
+"WSSE_SHIP_KINETIX_VW"."RADIOACTIVE" AS "RADIOACTIVE", 
+"WSSE_SHIP_KINETIX_VW"."COLORADO" AS "COLORADO", 
+"WSSE_SHIP_KINETIX_VW"."WELLSITE" AS "WELLSITE", 
+"WSSE_SHIP_KINETIX_VW"."DISTRICT" AS "DISTRICT", 
+"WSSE_SHIP_KINETIX_VW"."OPERATOR" AS "OPERATOR", 
+"WSSE_SHIP_KINETIX_VW"."SHIP_DATE" AS "SHIP_DATE", 
+"WSSE_SHIP_KINETIX_VW"."TREATMENT" AS "TREATMENT", 
+"WSSE_SHIP_KINETIX_VW"."TRUCK_NO" AS "TRUCK_NO", 
+"WSSE_SHIP_KINETIX_VW"."TRAILER_NO" AS "TRAILER_NO", 
+"WSSE_SHIP_KINETIX_VW"."CUSTOMER" AS "CUSTOMER", 
+"WSSE_SHIP_KINETIX_VW"."LOCATION" AS "LOCATION", 
+"WSSE_SHIP_KINETIX_VW"."WELL" AS "WELL", 
+"WSSE_SHIP_KINETIX_VW"."INSTRUCTIONS" AS "INSTRUCTIONS", 
+"WSSE_SHIP_KINETIX_VW"."SAFETY" AS "SAFETY", 
+"WSSE_SHIP_KINETIX_VW"."LOAD_DATE" AS "LOAD_DATE", 
+"WSSE_SHIP_KINETIX_VW"."LOAD_DIFF" AS "LOAD_DIFF", 
+"WSSE_SHIP_KINETIX_VW"."RETURN_DATE" AS "RETURN_DATE", 
+"WSSE_SHIP_KINETIX_VW"."SUPERVISOR" AS "SUPERVISOR", 
+"WSSE_SHIP_KINETIX_VW"."USERID" AS "USERID", 
+"WSSE_SHIP_KINETIX_VW"."CERT_SIGN" AS "CERT_SIGN", 
+"WSSE_SHIP_KINETIX_VW"."LOAD_SIGN" AS "LOAD_SIGN", 
+"WSSE_SHIP_KINETIX_VW"."TMP_EDIT" AS "TMP_EDIT", 
+"WSSE_SHIP_KINETIX_VW"."CREATE_BY" AS "CREATE_BY", 
+"WSSE_SHIP_KINETIX_VW"."SHIPMENT_ID" AS "SHIPMENT_ID", 
+"WSSE_SHIP_KINETIX_VW"."STOP_NUMBER" AS "STOP_NUMBER", 
+"WSSE_SHIP_KINETIX_VW"."ORIGIN" AS "ORIGIN", 
+"WSSE_SHIP_KINETIX_VW"."DESTINATION" AS "DESTINATION", 
+"WSSE_SHIP_KINETIX_VW"."NUM_OF_PRODUCTS_TMS" AS "NUM_OF_PRODUCTS_TMS", 
+"WSSE_SHIP_KINETIX_VW"."ARCHIVED" AS "ARCHIVED", 
+"WSSE_SHIP_KINETIX_VW"."CAT" AS "CAT", 
+"WSSE_SHIP_KINETIX_VW"."PROD_CODE" AS "PROD_CODE", 
+"WSSE_SHIP_KINETIX_VW"."ORDER_RELEASE_ID" AS "ORDER_RELEASE_ID", 
+"WSSE_SHIP_KINETIX_VW"."ACTUAL_QTY" AS "ACTUAL_QTY", 
+"WSSE_SHIP_KINETIX_VW"."ACTUAL_UNIT" AS "ACTUAL_UNIT", 
+"WSSE_SHIP_KINETIX_VW"."PACKTYPE" AS "PACKTYPE", 
+"WSSE_SHIP_KINETIX_VW"."PACKLOC" AS "PACKLOC", 
+"WSSE_SHIP_KINETIX_VW"."PACKNO" AS "PACKNO", 
+"WSSE_SHIP_KINETIX_VW"."BULKITEM" AS "BULKITEM", 
+"WSSE_SHIP_KINETIX_VW"."DOTSHIPID" AS "DOTSHIPID", 
+"WSSE_SHIP_KINETIX_VW"."LOTNO" AS "LOTNO", 
+"WSSE_SHIP_KINETIX_VW"."TANKNO" AS "TANKNO", 
+"WSSE_SHIP_KINETIX_VW"."SLINGNO" AS "SLINGNO", 
+"WSSE_SHIP_KINETIX_VW"."SLINGDATE" AS "SLINGDATE", 
+"WSSE_SHIP_KINETIX_VW"."RESIDUE" AS "RESIDUE", 
+"WSSE_SHIP_KINETIX_VW"."SORT" AS "SORT", 
+"WSSE_SHIP_KINETIX_VW"."MODEL_DESC" AS "MODEL_DESC", 
+"WSSE_SHIP_KINETIX_VW"."SERIAL_NO" AS "SERIAL_NO", 
+"WSSE_SHIP_KINETIX_VW"."SORT_ORDER" AS "SORT_ORDER", 
+"WSSE_SHIP_KINETIX_VW"."CONFIG_ID" AS "CONFIG_ID", 
+"WSSE_SHIP_KINETIX_VW"."CONFIG_NAME" AS "CONFIG_NAME"
+FROM "WERCS"."WSSE_SHIP_KINETIX_VW" "WSSE_SHIP_KINETIX_VW"</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_T_PROD_WIPG" Association="Self.FK_T_PROD_WIPG">
+            <End Role="T_PROD_WITH_INPUT_PROD" EntitySet="T_PROD_WITH_INPUT_PROD" />
+            <End Role="T_PROD_WITH_INPUT_PROD_GROUPS" EntitySet="T_PROD_WITH_INPUT_PROD_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WSSE_RAD_SHIP" Association="Self.FK_WSSE_RAD_SHIP">
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+            <End Role="WSSE_RAD_SHIP" EntitySet="WSSE_RAD_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C0016353" Association="Self.SYS_C0016353">
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+            <End Role="WSSE_DOT_SHIP" EntitySet="WSSE_DOT_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="WSSE_MAT_SHIP_FK31127846896883" Association="Self.WSSE_MAT_SHIP_FK31127846896883">
+            <End Role="WSSE_DOT_SHIP" EntitySet="WSSE_DOT_SHIP" />
+            <End Role="WSSE_MAT_SHIP" EntitySet="WSSE_MAT_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="WSSE_SHIP_FK21126408714187" Association="Self.WSSE_SHIP_FK21126408714187">
+            <End Role="WSSE_USER" EntitySet="WSSE_USER" />
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="WSSE_SHIP_MAT_FK21126408897734" Association="Self.WSSE_SHIP_MAT_FK21126408897734">
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+            <End Role="WSSE_MAT_SHIP" EntitySet="WSSE_MAT_SHIP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="USSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="USSPEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="DOTSHIPINSERT">
+            <Parameter Name="ICAT" Mode="In" Type="String" />
+            <Parameter Name="IPRODUCT" Mode="In" Type="String" />
+            <Parameter Name="IORDERRELEASEID" Mode="In" Type="String" />
+            <Parameter Name="IACTUAL_QTY" Mode="In" Type="Decimal" />
+            <Parameter Name="IACTUAL_UNIT" Mode="In" Type="String" />
+            <Parameter Name="IPACKTYPE" Mode="In" Type="String" />
+            <Parameter Name="IPACKLOC" Mode="In" Type="String" />
+            <Parameter Name="IPACKNO" Mode="In" Type="Decimal" />
+            <Parameter Name="IBULKITEM" Mode="In" Type="String" />
+            <Parameter Name="ISHIPID" Mode="In" Type="Decimal" />
+            <Parameter Name="ISORT" Mode="In" Type="Decimal" />
+            <Parameter Name="IRESIDUE" Mode="In" Type="Decimal" />
+            <Parameter Name="IUPDATE_BY" Mode="In" Type="String" />
+            <Parameter Name="ODOTSHIPID" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SHIPINSERT">
+            <Parameter Name="IWELLSITE" Mode="In" Type="String" />
+            <Parameter Name="IDISTRICT" Mode="In" Type="String" />
+            <Parameter Name="IOPERATOR" Mode="In" Type="String" />
+            <Parameter Name="ISHIP_DATE" Mode="In" Type="String" />
+            <Parameter Name="ITREATMENT" Mode="In" Type="String" />
+            <Parameter Name="ITRUCK_NO" Mode="In" Type="String" />
+            <Parameter Name="ITRAILER_NO" Mode="In" Type="String" />
+            <Parameter Name="ICUSTOMER" Mode="In" Type="String" />
+            <Parameter Name="ILOCATION" Mode="In" Type="String" />
+            <Parameter Name="IWELL" Mode="In" Type="String" />
+            <Parameter Name="IINSTRUCTIONS" Mode="In" Type="String" />
+            <Parameter Name="ISAFETY" Mode="In" Type="String" />
+            <Parameter Name="ISUPERVISOR" Mode="In" Type="String" />
+            <Parameter Name="IUSERID" Mode="In" Type="String" />
+            <Parameter Name="ICREATE_BY" Mode="In" Type="String" />
+            <Parameter Name="ILOAD_DIFF" Mode="In" Type="Decimal" />
+            <Parameter Name="IRETURN_DATE" Mode="In" Type="String" />
+            <Parameter Name="IVERSION" Mode="In" Type="Decimal" />
+            <Parameter Name="ICERT_SIGN" Mode="In" Type="String" />
+            <Parameter Name="ILOAD_SIGN" Mode="In" Type="String" />
+            <Parameter Name="ISHIPMENTID" Mode="In" Type="String" />
+            <Parameter Name="ISTOPNUMBER" Mode="In" Type="String" />
+            <Parameter Name="IORIGIN" Mode="In" Type="String" />
+            <Parameter Name="IDESTINATION" Mode="In" Type="String" />
+            <Parameter Name="INUMOFSTOPSTMS" Mode="In" Type="Decimal" />
+            <Parameter Name="IRADIOACTIVE" Mode="In" Type="Decimal" />
+            <Parameter Name="ICOLORADO" Mode="In" Type="Decimal" />
+            <Parameter Name="OSHIPID" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SHIPUPDATE">
+            <Parameter Name="IWELLSITE" Mode="In" Type="String" />
+            <Parameter Name="IDISTRICT" Mode="In" Type="String" />
+            <Parameter Name="IOPERATOR" Mode="In" Type="String" />
+            <Parameter Name="ISHIP_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="ITREATMENT" Mode="In" Type="String" />
+            <Parameter Name="ITRUCK_NO" Mode="In" Type="String" />
+            <Parameter Name="ITRAILER_NO" Mode="In" Type="String" />
+            <Parameter Name="ICUSTOMER" Mode="In" Type="String" />
+            <Parameter Name="ILOCATION" Mode="In" Type="String" />
+            <Parameter Name="IWELL" Mode="In" Type="String" />
+            <Parameter Name="IINSTRUCTIONS" Mode="In" Type="String" />
+            <Parameter Name="ISAFETY" Mode="In" Type="String" />
+            <Parameter Name="ISUPERVISOR" Mode="In" Type="String" />
+            <Parameter Name="IUSERID" Mode="In" Type="String" />
+            <Parameter Name="IUPDATE_BY" Mode="In" Type="String" />
+            <Parameter Name="ILOAD_DIFF" Mode="In" Type="Decimal" />
+            <Parameter Name="IRETURN_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="IVERSION" Mode="In" Type="Decimal" />
+            <Parameter Name="ICERT_SIGN" Mode="In" Type="String" />
+            <Parameter Name="ILOAD_SIGN" Mode="In" Type="String" />
+            <Parameter Name="IRADIOACTIVE" Mode="In" Type="Decimal" />
+            <Parameter Name="ICOLORADO" Mode="In" Type="Decimal" />
+            <Parameter Name="ISHIPID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GETSHIPMENTKINETIX">
+            <Parameter Name="P_IN_SHIPMENTID" Mode="In" Type="String" />
+            <Parameter Name="P_IN_STOPNUMBER" Mode="In" Type="String" />
+            <Parameter Name="P_IN_ORIGIN" Mode="In" Type="String" />
+            <Parameter Name="P_IN_DESTINATION" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TMSPRODUCTINSERT">
+            <Parameter Name="ISHIPMENTID" Mode="In" Type="String" />
+            <Parameter Name="ISOURCE" Mode="In" Type="String" />
+            <Parameter Name="IDESTINATION" Mode="In" Type="String" />
+            <Parameter Name="ISTOPNUMBER" Mode="In" Type="String" />
+            <Parameter Name="IPRODUCTCODE" Mode="In" Type="String" />
+            <Parameter Name="ISHIPID" Mode="In" Type="Decimal" />
+            <Parameter Name="IISDELETED" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="WSSE_SHIP" EntityType="USSPModel.WSSE_SHIP" />
+          <EntitySet Name="T_PROD_WITH_INPUT_PROD" EntityType="USSPModel.T_PROD_WITH_INPUT_PROD" />
+          <EntitySet Name="T_PROD_WITH_INPUT_PROD_GROUPS" EntityType="USSPModel.T_PROD_WITH_INPUT_PROD_GROUPS" />
+          <AssociationSet Name="FK_T_PROD_WIPG" Association="USSPModel.FK_T_PROD_WIPG">
+            <End Role="T_PROD_WITH_INPUT_PROD" EntitySet="T_PROD_WITH_INPUT_PROD" />
+            <End Role="T_PROD_WITH_INPUT_PROD_GROUPS" EntitySet="T_PROD_WITH_INPUT_PROD_GROUPS" />
+          </AssociationSet>
+          <EntitySet Name="WSSE_DOT_SHIP" EntityType="USSPModel.WSSE_DOT_SHIP" />
+          <EntitySet Name="WSSE_LOGGER" EntityType="USSPModel.WSSE_LOGGER" />
+          <EntitySet Name="WSSE_MAT_SHIP" EntityType="USSPModel.WSSE_MAT_SHIP" />
+          <EntitySet Name="WSSE_PICKLISTS" EntityType="USSPModel.WSSE_PICKLISTS" />
+          <EntitySet Name="WSSE_RAD_CONFIG" EntityType="USSPModel.WSSE_RAD_CONFIG" />
+          <EntitySet Name="WSSE_RAD_DETAILS" EntityType="USSPModel.WSSE_RAD_DETAILS" />
+          <EntitySet Name="WSSE_RAD_LABELS" EntityType="USSPModel.WSSE_RAD_LABELS" />
+          <EntitySet Name="WSSE_RAD_SHIP" EntityType="USSPModel.WSSE_RAD_SHIP" />
+          <EntitySet Name="WSSE_USER" EntityType="USSPModel.WSSE_USER" />
+          <EntitySet Name="WSSE_USERMAP" EntityType="USSPModel.WSSE_USERMAP" />
+          <AssociationSet Name="SYS_C0016353" Association="USSPModel.SYS_C0016353">
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+            <End Role="WSSE_DOT_SHIP" EntitySet="WSSE_DOT_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="WSSE_MAT_SHIP_FK31127846896883" Association="USSPModel.WSSE_MAT_SHIP_FK31127846896883">
+            <End Role="WSSE_DOT_SHIP" EntitySet="WSSE_DOT_SHIP" />
+            <End Role="WSSE_MAT_SHIP" EntitySet="WSSE_MAT_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="WSSE_SHIP_MAT_FK21126408897734" Association="USSPModel.WSSE_SHIP_MAT_FK21126408897734">
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+            <End Role="WSSE_MAT_SHIP" EntitySet="WSSE_MAT_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WSSE_RAD_SHIP" Association="USSPModel.FK_WSSE_RAD_SHIP">
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+            <End Role="WSSE_RAD_SHIP" EntitySet="WSSE_RAD_SHIP" />
+          </AssociationSet>
+          <AssociationSet Name="WSSE_SHIP_FK21126408714187" Association="USSPModel.WSSE_SHIP_FK21126408714187">
+            <End Role="WSSE_USER" EntitySet="WSSE_USER" />
+            <End Role="WSSE_SHIP" EntitySet="WSSE_SHIP" />
+          </AssociationSet>
+          <EntitySet Name="W_PROD_WITH_INPUT_PROD" EntityType="USSPModel.W_PROD_WITH_INPUT_PROD" />
+          <EntitySet Name="WSSE_SHIP_KINETIX_VW" EntityType="USSPModel.WSSE_SHIP_KINETIX_VW" />
+          <EntitySet Name="IPC_FEEDBACK" EntityType="USSPModel.IPC_FEEDBACK" />
+          <EntitySet Name="IPC_FEEDBACK_CATEGORY" EntityType="USSPModel.IPC_FEEDBACK_CATEGORY" />
+          <EntitySet Name="IPC_FEEDBACK_PICKLISTS" EntityType="USSPModel.IPC_FEEDBACK_PICKLISTS" />
+          <EntitySet Name="IPC_FEEDBACK_PROJUSERS" EntityType="USSPModel.IPC_FEEDBACK_PROJUSERS" />
+          <EntitySet Name="IPC_FEEDBACK_USERMAP" EntityType="USSPModel.IPC_FEEDBACK_USERMAP" />
+          <EntitySet Name="IPC_FEEDBACK_USERS" EntityType="USSPModel.IPC_FEEDBACK_USERS" />
+          <EntitySet Name="T_PHRASE_LINKAGE" EntityType="USSPModel.T_PHRASE_LINKAGE" />
+          <EntitySet Name="T_PHRASE_TRANSLATIONS" EntityType="USSPModel.T_PHRASE_TRANSLATIONS" />
+          <EntitySet Name="T_PROD_TEXT" EntityType="USSPModel.T_PROD_TEXT" />
+          <EntitySet Name="WSSE_MESSAGE" EntityType="USSPModel.WSSE_MESSAGE" />
+          <EntitySet Name="WSSE_TMS_PRODUCTS" EntityType="USSPModel.WSSE_TMS_PRODUCTS" />
+        </EntityContainer>
+        <EntityType Name="WSSE_SHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="WELLSITE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OPERATOR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_DATE" Type="DateTime" />
+          <Property Name="TREATMENT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TRUCK_NO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TRAILER_NO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="WELL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="INSTRUCTIONS" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="EXEMPT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SAFETY" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="LOAD_DATE" Type="DateTime" />
+          <Property Name="RETURN_DATE" Type="DateTime" />
+          <Property Name="SUPERVISOR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="VERSION" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CREATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="LOAD_DIFF" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="TMP_EDIT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CERT_SIGN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LOAD_SIGN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="RADIOACTIVE" Type="Int16" Nullable="false" />
+          <Property Name="ARCHIVED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="COLORADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SHIPMENT_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="STOP_NUMBER" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ORIGIN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DESTINATION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NUM_OF_PRODUCTS_TMS" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="WSSE_DOT_SHIP" Relationship="USSPModel.SYS_C0016353" FromRole="WSSE_SHIP" ToRole="WSSE_DOT_SHIP" />
+          <NavigationProperty Name="WSSE_MAT_SHIP" Relationship="USSPModel.WSSE_SHIP_MAT_FK21126408897734" FromRole="WSSE_SHIP" ToRole="WSSE_MAT_SHIP" />
+          <NavigationProperty Name="WSSE_RAD_SHIP" Relationship="USSPModel.FK_WSSE_RAD_SHIP" FromRole="WSSE_SHIP" ToRole="WSSE_RAD_SHIP" />
+          <NavigationProperty Name="WSSE_USER" Relationship="USSPModel.WSSE_SHIP_FK21126408714187" FromRole="WSSE_SHIP" ToRole="WSSE_USER" />
+        </EntityType>
+        <EntityType Name="T_PROD_WITH_INPUT_PROD">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_INPUT_PRODUCT" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_INPUT_PRODUCT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_PERCENT" Type="Decimal" Precision="20" Scale="10" />
+          <Property Name="F_PRODUCT_NAME" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="F_USER_UPDATED" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_DATE_STAMP" Type="DateTime" />
+          <Property Name="F_SORTORDER" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="F_FROM_PERCENT" Type="Decimal" Precision="30" Scale="10" />
+          <Property Name="F_REQUIRED" Type="Int16" Nullable="false" />
+          <Property Name="F_INPUT_PRODUCT_MODEL" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_PROD_WITH_INPUT_PROD_GROUPS" Relationship="USSPModel.FK_T_PROD_WIPG" FromRole="T_PROD_WITH_INPUT_PROD" ToRole="T_PROD_WITH_INPUT_PROD_GROUPS" />
+        </EntityType>
+        <EntityType Name="T_PROD_WITH_INPUT_PROD_GROUPS">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_INPUT_PRODUCT" />
+            <PropertyRef Name="F_GROUPID" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_INPUT_PRODUCT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_GROUPID" Type="Int16" Nullable="false" />
+          <Property Name="F_REQUIRED" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="T_PROD_WITH_INPUT_PROD" Relationship="USSPModel.FK_T_PROD_WIPG" FromRole="T_PROD_WITH_INPUT_PROD_GROUPS" ToRole="T_PROD_WITH_INPUT_PROD" />
+        </EntityType>
+        <Association Name="FK_T_PROD_WIPG">
+          <End Type="USSPModel.T_PROD_WITH_INPUT_PROD" Role="T_PROD_WITH_INPUT_PROD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="USSPModel.T_PROD_WITH_INPUT_PROD_GROUPS" Role="T_PROD_WITH_INPUT_PROD_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PROD_WITH_INPUT_PROD">
+              <PropertyRef Name="F_PRODUCT" />
+              <PropertyRef Name="F_INPUT_PRODUCT" />
+            </Principal>
+            <Dependent Role="T_PROD_WITH_INPUT_PROD_GROUPS">
+              <PropertyRef Name="F_PRODUCT" />
+              <PropertyRef Name="F_INPUT_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WSSE_DOT_SHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="CAT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACTUAL_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ACTUAL_UNIT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PACKTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PACKNO" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="SHIPID" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="SORT" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BULKITEM" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LOTNO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TANKNO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SLINGNO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SLINGDATE" Type="DateTime" />
+          <Property Name="PACKLOC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RESIDUE" Type="Int16" Nullable="false" />
+          <Property Name="ORDER_RELEASE_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WSSE_SHIP" Relationship="USSPModel.SYS_C0016353" FromRole="WSSE_DOT_SHIP" ToRole="WSSE_SHIP" />
+          <NavigationProperty Name="WSSE_MAT_SHIP" Relationship="USSPModel.WSSE_MAT_SHIP_FK31127846896883" FromRole="WSSE_DOT_SHIP" ToRole="WSSE_MAT_SHIP" />
+        </EntityType>
+        <EntityType Name="WSSE_LOGGER">
+          <Key>
+            <PropertyRef Name="LOGGER_ID" />
+          </Key>
+          <Property Name="LOGGER_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="LOGGER_DATE" Type="DateTime" />
+          <Property Name="LOGGER_LOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LOGGER_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOGGER_EXECUTION_TIME" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LOGGER_DOC_COUNT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LOGGER_PAGE_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LOGGER_ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOGGER_BROWSER" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WSSE_MAT_SHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="PRODUCT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WT_VOL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="WT_VOL_UNIT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="SHIPID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="SORTORDER" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DOT_SHIPID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="DRY_BLEND" Type="Int16" />
+          <Property Name="CONCENTRATION" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="WSSE_DOT_SHIP" Relationship="USSPModel.WSSE_MAT_SHIP_FK31127846896883" FromRole="WSSE_MAT_SHIP" ToRole="WSSE_DOT_SHIP" />
+          <NavigationProperty Name="WSSE_SHIP" Relationship="USSPModel.WSSE_SHIP_MAT_FK21126408897734" FromRole="WSSE_MAT_SHIP" ToRole="WSSE_SHIP" />
+        </EntityType>
+        <EntityType Name="WSSE_PICKLISTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="VALUE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SORTORDER" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_CONFIG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DISABLE_ALL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INCLUDE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SORT_ORDER" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MODEL_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_DESC" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="RADIONUCLIDE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TRANSPORT_INDEX" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PACKAGE_TYPE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ACTIVITY" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="GROSS_WT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_LABELS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MODEL_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LABEL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="HAZ_TYPE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE_NAME" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="WSSE_RAD_SHIP">
+          <Key>
+            <PropertyRef Name="SHIPID" />
+            <PropertyRef Name="SORT_ORDER" />
+            <PropertyRef Name="CONFIG_ID" />
+          </Key>
+          <Property Name="MODEL_NO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SERIAL_NO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SHIPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SORT_ORDER" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CONFIG_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="WSSE_SHIP" Relationship="USSPModel.FK_WSSE_RAD_SHIP" FromRole="WSSE_RAD_SHIP" ToRole="WSSE_SHIP" />
+        </EntityType>
+        <EntityType Name="WSSE_USER">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USERLEVEL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="LOCKED" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LOCATIONLDAP" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TRAINING_COMPLETE" Type="DateTime" />
+          <Property Name="LASTLOGIN" Type="DateTime" />
+          <Property Name="DELETED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DELETED_DATE" Type="DateTime" />
+          <Property Name="DELETED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WSSE_SHIP" Relationship="USSPModel.WSSE_SHIP_FK21126408714187" FromRole="WSSE_USER" ToRole="WSSE_SHIP" />
+        </EntityType>
+        <EntityType Name="WSSE_USERMAP">
+          <Key>
+            <PropertyRef Name="USERLEVEL" />
+          </Key>
+          <Property Name="USERLEVEL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INFO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="SORT" Type="Int16" />
+        </EntityType>
+        <Association Name="SYS_C0016353">
+          <End Type="USSPModel.WSSE_SHIP" Role="WSSE_SHIP" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="USSPModel.WSSE_DOT_SHIP" Role="WSSE_DOT_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_DOT_SHIP">
+              <PropertyRef Name="SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WSSE_MAT_SHIP_FK31127846896883">
+          <End Type="USSPModel.WSSE_DOT_SHIP" Role="WSSE_DOT_SHIP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="USSPModel.WSSE_MAT_SHIP" Role="WSSE_MAT_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_DOT_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_MAT_SHIP">
+              <PropertyRef Name="DOT_SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WSSE_SHIP_MAT_FK21126408897734">
+          <End Type="USSPModel.WSSE_SHIP" Role="WSSE_SHIP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="USSPModel.WSSE_MAT_SHIP" Role="WSSE_MAT_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_MAT_SHIP">
+              <PropertyRef Name="SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WSSE_RAD_SHIP">
+          <End Type="USSPModel.WSSE_SHIP" Role="WSSE_SHIP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="USSPModel.WSSE_RAD_SHIP" Role="WSSE_RAD_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_SHIP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WSSE_RAD_SHIP">
+              <PropertyRef Name="SHIPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WSSE_SHIP_FK21126408714187">
+          <End Type="USSPModel.WSSE_USER" Role="WSSE_USER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="USSPModel.WSSE_SHIP" Role="WSSE_SHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WSSE_USER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="WSSE_SHIP">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="W_PROD_WITH_INPUT_PROD">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_INPUT_PRODUCT" />
+            <PropertyRef Name="F_REQUIRED" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_INPUT_PRODUCT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_PERCENT" Type="Decimal" Precision="20" Scale="10" />
+          <Property Name="F_PRODUCT_NAME" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="F_USER_UPDATED" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_DATE_STAMP" Type="DateTime" />
+          <Property Name="F_SORTORDER" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="F_FROM_PERCENT" Type="Decimal" Precision="30" Scale="10" />
+          <Property Name="F_REQUIRED" Type="Int16" Nullable="false" />
+          <Property Name="F_INPUT_PRODUCT_MODEL" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WSSE_SHIP_KINETIX_VW">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ARCHIVED" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="RADIOACTIVE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COLORADO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="WELLSITE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OPERATOR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_DATE" Type="DateTime" />
+          <Property Name="TREATMENT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TRUCK_NO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TRAILER_NO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="WELL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="INSTRUCTIONS" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SAFETY" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="LOAD_DATE" Type="DateTime" />
+          <Property Name="LOAD_DIFF" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="RETURN_DATE" Type="DateTime" />
+          <Property Name="SUPERVISOR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CERT_SIGN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LOAD_SIGN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TMP_EDIT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SHIPMENT_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="STOP_NUMBER" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ORIGIN" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DESTINATION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NUM_OF_PRODUCTS_TMS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ARCHIVED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CAT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER_RELEASE_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ACTUAL_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ACTUAL_UNIT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PACKTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PACKLOC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PACKNO" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="BULKITEM" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DOTSHIPID" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="LOTNO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TANKNO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SLINGNO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SLINGDATE" Type="DateTime" />
+          <Property Name="RESIDUE" Type="Int16" />
+          <Property Name="SORT" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="MODEL_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SERIAL_NO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SORT_ORDER" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CONFIG_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CONFIG_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="PROJECTID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="PRIORITYID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="STATUSID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="RESOLUTION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ASSIGNED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ASSIGNED_TO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_ASSIGNED" Type="DateTime" />
+          <Property Name="DATE_RESOLVED" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORYID" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="CREATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="PROJECTID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="VALUE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SORTORDER" Type="Decimal" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_PICKLISTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="VALUE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SORTORDER" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_PROJUSERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="PROJECTID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_USERMAP">
+          <Key>
+            <PropertyRef Name="USERLEVEL" />
+          </Key>
+          <Property Name="USERLEVEL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INFO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="SORT" Type="Int16" />
+        </EntityType>
+        <EntityType Name="IPC_FEEDBACK_USERS">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USERLEVEL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="LOCKED" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LOCATIONLDAP" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="OU" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MANAGER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVE" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_PHRASE_LINKAGE">
+          <Key>
+            <PropertyRef Name="F_LINK_ID" />
+          </Key>
+          <Property Name="F_LINK_ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="F_PHRASE_ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="F_DATA_CODE" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="F_TEXT_CODE" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="F_TEXT_TYPE" Type="Int16" Nullable="false" />
+          <Property Name="F_SEVERITY" Type="Int16" Nullable="false" />
+          <Property Name="F_COMMENTS" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="F_STATUS" Type="Int16" />
+          <Property Name="F_USER_REQUESTED" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_USER_ADDED" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_USER_UPDATED" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_DATE_STAMP" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_PHRASE_TRANSLATIONS">
+          <Key>
+            <PropertyRef Name="F_TRANSLATION_ID" />
+          </Key>
+          <Property Name="F_TRANSLATION_ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="F_PHRASE_ID" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="F_LANGUAGE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="F_PHRASE" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="F_COMMENTS" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="F_USER_REQUESTED" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_USER_ADDED" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_USER_UPDATED" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_DATE_STAMP" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_PROD_TEXT">
+          <Key>
+            <PropertyRef Name="F_PRODUCT" />
+            <PropertyRef Name="F_FORMAT" />
+            <PropertyRef Name="F_TEXT_CODE" />
+          </Key>
+          <Property Name="F_PRODUCT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_FORMAT" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="F_TEXT_CODE" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="F_DATE_STAMP" Type="DateTime" />
+          <Property Name="F_DATA_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="F_COUNTER" Type="Int32" />
+          <Property Name="F_USER_UPDATED" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="F_JOIN_BY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WSSE_MESSAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATEBEGIN" Type="DateTime" />
+          <Property Name="DATEEND" Type="DateTime" />
+          <Property Name="MESSAGE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WSSE_TMS_PRODUCTS">
+          <Key>
+            <PropertyRef Name="SHIPMENT_ID" />
+            <PropertyRef Name="SHIPID" />
+            <PropertyRef Name="ISDELETED" />
+          </Key>
+          <Property Name="SHIPMENT_ID" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SOURCE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DESTINATION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="STOP_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DATESTAMP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SHIPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ISDELETED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="USSPModelStoreContainer" CdmEntityContainer="USSPEntities">
+          <FunctionImportMapping FunctionImportName="DOTSHIPINSERT" FunctionName="USSPModel.Store.DOTSHIPINSERT" />
+          <FunctionImportMapping FunctionImportName="SHIPINSERT" FunctionName="USSPModel.Store.SHIPINSERT" />
+          <FunctionImportMapping FunctionImportName="SHIPUPDATE" FunctionName="USSPModel.Store.SHIPUPDATE" />
+          <FunctionImportMapping FunctionImportName="GETSHIPMENTKINETIX" FunctionName="USSPModel.Store.GETSHIPMENTKINETIX" />
+          <FunctionImportMapping FunctionImportName="TMSPRODUCTINSERT" FunctionName="USSPModel.Store.TMSPRODUCTINSERT" />
+          <EntitySetMapping Name="WSSE_SHIP">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_SHIP">
+              <MappingFragment StoreEntitySet="WSSE_SHIP">
+                <ScalarProperty Name="NUM_OF_PRODUCTS_TMS" ColumnName="NUM_OF_PRODUCTS_TMS" />
+                <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+                <ScalarProperty Name="ORIGIN" ColumnName="ORIGIN" />
+                <ScalarProperty Name="STOP_NUMBER" ColumnName="STOP_NUMBER" />
+                <ScalarProperty Name="SHIPMENT_ID" ColumnName="SHIPMENT_ID" />
+                <ScalarProperty Name="COLORADO" ColumnName="COLORADO" />
+                <ScalarProperty Name="ARCHIVED" ColumnName="ARCHIVED" />
+                <ScalarProperty Name="RADIOACTIVE" ColumnName="RADIOACTIVE" />
+                <ScalarProperty Name="LOAD_SIGN" ColumnName="LOAD_SIGN" />
+                <ScalarProperty Name="CERT_SIGN" ColumnName="CERT_SIGN" />
+                <ScalarProperty Name="TMP_EDIT" ColumnName="TMP_EDIT" />
+                <ScalarProperty Name="LOAD_DIFF" ColumnName="LOAD_DIFF" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="SUPERVISOR" ColumnName="SUPERVISOR" />
+                <ScalarProperty Name="RETURN_DATE" ColumnName="RETURN_DATE" />
+                <ScalarProperty Name="LOAD_DATE" ColumnName="LOAD_DATE" />
+                <ScalarProperty Name="SAFETY" ColumnName="SAFETY" />
+                <ScalarProperty Name="EXEMPT" ColumnName="EXEMPT" />
+                <ScalarProperty Name="INSTRUCTIONS" ColumnName="INSTRUCTIONS" />
+                <ScalarProperty Name="WELL" ColumnName="WELL" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="CUSTOMER" ColumnName="CUSTOMER" />
+                <ScalarProperty Name="TRAILER_NO" ColumnName="TRAILER_NO" />
+                <ScalarProperty Name="TRUCK_NO" ColumnName="TRUCK_NO" />
+                <ScalarProperty Name="TREATMENT" ColumnName="TREATMENT" />
+                <ScalarProperty Name="SHIP_DATE" ColumnName="SHIP_DATE" />
+                <ScalarProperty Name="OPERATOR" ColumnName="OPERATOR" />
+                <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+                <ScalarProperty Name="WELLSITE" ColumnName="WELLSITE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PROD_WITH_INPUT_PROD">
+            <EntityTypeMapping TypeName="USSPModel.T_PROD_WITH_INPUT_PROD">
+              <MappingFragment StoreEntitySet="T_PROD_WITH_INPUT_PROD">
+                <ScalarProperty Name="F_INPUT_PRODUCT_MODEL" ColumnName="F_INPUT_PRODUCT_MODEL" />
+                <ScalarProperty Name="F_REQUIRED" ColumnName="F_REQUIRED" />
+                <ScalarProperty Name="F_FROM_PERCENT" ColumnName="F_FROM_PERCENT" />
+                <ScalarProperty Name="F_SORTORDER" ColumnName="F_SORTORDER" />
+                <ScalarProperty Name="F_DATE_STAMP" ColumnName="F_DATE_STAMP" />
+                <ScalarProperty Name="F_USER_UPDATED" ColumnName="F_USER_UPDATED" />
+                <ScalarProperty Name="F_PRODUCT_NAME" ColumnName="F_PRODUCT_NAME" />
+                <ScalarProperty Name="F_PERCENT" ColumnName="F_PERCENT" />
+                <ScalarProperty Name="F_INPUT_PRODUCT" ColumnName="F_INPUT_PRODUCT" />
+                <ScalarProperty Name="F_PRODUCT" ColumnName="F_PRODUCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PROD_WITH_INPUT_PROD_GROUPS">
+            <EntityTypeMapping TypeName="USSPModel.T_PROD_WITH_INPUT_PROD_GROUPS">
+              <MappingFragment StoreEntitySet="T_PROD_WITH_INPUT_PROD_GROUPS">
+                <ScalarProperty Name="F_REQUIRED" ColumnName="F_REQUIRED" />
+                <ScalarProperty Name="F_GROUPID" ColumnName="F_GROUPID" />
+                <ScalarProperty Name="F_INPUT_PRODUCT" ColumnName="F_INPUT_PRODUCT" />
+                <ScalarProperty Name="F_PRODUCT" ColumnName="F_PRODUCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_DOT_SHIP">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_DOT_SHIP">
+              <MappingFragment StoreEntitySet="WSSE_DOT_SHIP">
+                <ScalarProperty Name="ORDER_RELEASE_ID" ColumnName="ORDER_RELEASE_ID" />
+                <ScalarProperty Name="RESIDUE" ColumnName="RESIDUE" />
+                <ScalarProperty Name="PACKLOC" ColumnName="PACKLOC" />
+                <ScalarProperty Name="SLINGDATE" ColumnName="SLINGDATE" />
+                <ScalarProperty Name="SLINGNO" ColumnName="SLINGNO" />
+                <ScalarProperty Name="TANKNO" ColumnName="TANKNO" />
+                <ScalarProperty Name="LOTNO" ColumnName="LOTNO" />
+                <ScalarProperty Name="BULKITEM" ColumnName="BULKITEM" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="SHIPID" ColumnName="SHIPID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PACKNO" ColumnName="PACKNO" />
+                <ScalarProperty Name="PACKTYPE" ColumnName="PACKTYPE" />
+                <ScalarProperty Name="ACTUAL_UNIT" ColumnName="ACTUAL_UNIT" />
+                <ScalarProperty Name="ACTUAL_QTY" ColumnName="ACTUAL_QTY" />
+                <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+                <ScalarProperty Name="CAT" ColumnName="CAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_LOGGER">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_LOGGER">
+              <MappingFragment StoreEntitySet="WSSE_LOGGER">
+                <ScalarProperty Name="LOGGER_BROWSER" ColumnName="LOGGER_BROWSER" />
+                <ScalarProperty Name="LOGGER_ALIAS" ColumnName="LOGGER_ALIAS" />
+                <ScalarProperty Name="LOGGER_PAGE_TYPE" ColumnName="LOGGER_PAGE_TYPE" />
+                <ScalarProperty Name="LOGGER_DOC_COUNT" ColumnName="LOGGER_DOC_COUNT" />
+                <ScalarProperty Name="LOGGER_EXECUTION_TIME" ColumnName="LOGGER_EXECUTION_TIME" />
+                <ScalarProperty Name="LOGGER_IP" ColumnName="LOGGER_IP" />
+                <ScalarProperty Name="LOGGER_LOCATION" ColumnName="LOGGER_LOCATION" />
+                <ScalarProperty Name="LOGGER_DATE" ColumnName="LOGGER_DATE" />
+                <ScalarProperty Name="LOGGER_ID" ColumnName="LOGGER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_MAT_SHIP">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_MAT_SHIP">
+              <MappingFragment StoreEntitySet="WSSE_MAT_SHIP">
+                <ScalarProperty Name="CONCENTRATION" ColumnName="CONCENTRATION" />
+                <ScalarProperty Name="DRY_BLEND" ColumnName="DRY_BLEND" />
+                <ScalarProperty Name="DOT_SHIPID" ColumnName="DOT_SHIPID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="SORTORDER" ColumnName="SORTORDER" />
+                <ScalarProperty Name="SHIPID" ColumnName="SHIPID" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="WT_VOL_UNIT" ColumnName="WT_VOL_UNIT" />
+                <ScalarProperty Name="WT_VOL" ColumnName="WT_VOL" />
+                <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_PICKLISTS">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_PICKLISTS">
+              <MappingFragment StoreEntitySet="WSSE_PICKLISTS">
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SORTORDER" ColumnName="SORTORDER" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_RAD_CONFIG">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_RAD_CONFIG">
+              <MappingFragment StoreEntitySet="WSSE_RAD_CONFIG">
+                <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+                <ScalarProperty Name="INCLUDE" ColumnName="INCLUDE" />
+                <ScalarProperty Name="DISABLE_ALL" ColumnName="DISABLE_ALL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_RAD_DETAILS">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_RAD_DETAILS">
+              <MappingFragment StoreEntitySet="WSSE_RAD_DETAILS">
+                <ScalarProperty Name="GROSS_WT" ColumnName="GROSS_WT" />
+                <ScalarProperty Name="ACTIVITY" ColumnName="ACTIVITY" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PACKAGE_TYPE" ColumnName="PACKAGE_TYPE" />
+                <ScalarProperty Name="TRANSPORT_INDEX" ColumnName="TRANSPORT_INDEX" />
+                <ScalarProperty Name="RADIONUCLIDE" ColumnName="RADIONUCLIDE" />
+                <ScalarProperty Name="SHIP_DESC" ColumnName="SHIP_DESC" />
+                <ScalarProperty Name="MODEL_DESC" ColumnName="MODEL_DESC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_RAD_LABELS">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_RAD_LABELS">
+              <MappingFragment StoreEntitySet="WSSE_RAD_LABELS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IMAGE_NAME" ColumnName="IMAGE_NAME" />
+                <ScalarProperty Name="HAZ_TYPE" ColumnName="HAZ_TYPE" />
+                <ScalarProperty Name="LABEL" ColumnName="LABEL" />
+                <ScalarProperty Name="MODEL_DESC" ColumnName="MODEL_DESC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_RAD_SHIP">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_RAD_SHIP">
+              <MappingFragment StoreEntitySet="WSSE_RAD_SHIP">
+                <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+                <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+                <ScalarProperty Name="SHIPID" ColumnName="SHIPID" />
+                <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+                <ScalarProperty Name="MODEL_NO" ColumnName="MODEL_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_USER">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_USER">
+              <MappingFragment StoreEntitySet="WSSE_USER">
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="LASTLOGIN" ColumnName="LASTLOGIN" />
+                <ScalarProperty Name="TRAINING_COMPLETE" ColumnName="TRAINING_COMPLETE" />
+                <ScalarProperty Name="LOCATIONLDAP" ColumnName="LOCATIONLDAP" />
+                <ScalarProperty Name="LOCKED" ColumnName="LOCKED" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="USERLEVEL" ColumnName="USERLEVEL" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_USERMAP">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_USERMAP">
+              <MappingFragment StoreEntitySet="WSSE_USERMAP">
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="INFO" ColumnName="INFO" />
+                <ScalarProperty Name="USERLEVEL" ColumnName="USERLEVEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="W_PROD_WITH_INPUT_PROD">
+            <EntityTypeMapping TypeName="USSPModel.W_PROD_WITH_INPUT_PROD">
+              <MappingFragment StoreEntitySet="W_PROD_WITH_INPUT_PROD">
+                <ScalarProperty Name="F_INPUT_PRODUCT_MODEL" ColumnName="F_INPUT_PRODUCT_MODEL" />
+                <ScalarProperty Name="F_REQUIRED" ColumnName="F_REQUIRED" />
+                <ScalarProperty Name="F_FROM_PERCENT" ColumnName="F_FROM_PERCENT" />
+                <ScalarProperty Name="F_SORTORDER" ColumnName="F_SORTORDER" />
+                <ScalarProperty Name="F_DATE_STAMP" ColumnName="F_DATE_STAMP" />
+                <ScalarProperty Name="F_USER_UPDATED" ColumnName="F_USER_UPDATED" />
+                <ScalarProperty Name="F_PRODUCT_NAME" ColumnName="F_PRODUCT_NAME" />
+                <ScalarProperty Name="F_PERCENT" ColumnName="F_PERCENT" />
+                <ScalarProperty Name="F_INPUT_PRODUCT" ColumnName="F_INPUT_PRODUCT" />
+                <ScalarProperty Name="F_PRODUCT" ColumnName="F_PRODUCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_SHIP_KINETIX_VW">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_SHIP_KINETIX_VW">
+              <MappingFragment StoreEntitySet="WSSE_SHIP_KINETIX_VW">
+                <ScalarProperty Name="CONFIG_NAME" ColumnName="CONFIG_NAME" />
+                <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+                <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+                <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+                <ScalarProperty Name="MODEL_DESC" ColumnName="MODEL_DESC" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="RESIDUE" ColumnName="RESIDUE" />
+                <ScalarProperty Name="SLINGDATE" ColumnName="SLINGDATE" />
+                <ScalarProperty Name="SLINGNO" ColumnName="SLINGNO" />
+                <ScalarProperty Name="TANKNO" ColumnName="TANKNO" />
+                <ScalarProperty Name="LOTNO" ColumnName="LOTNO" />
+                <ScalarProperty Name="DOTSHIPID" ColumnName="DOTSHIPID" />
+                <ScalarProperty Name="BULKITEM" ColumnName="BULKITEM" />
+                <ScalarProperty Name="PACKNO" ColumnName="PACKNO" />
+                <ScalarProperty Name="PACKLOC" ColumnName="PACKLOC" />
+                <ScalarProperty Name="PACKTYPE" ColumnName="PACKTYPE" />
+                <ScalarProperty Name="ACTUAL_UNIT" ColumnName="ACTUAL_UNIT" />
+                <ScalarProperty Name="ACTUAL_QTY" ColumnName="ACTUAL_QTY" />
+                <ScalarProperty Name="ORDER_RELEASE_ID" ColumnName="ORDER_RELEASE_ID" />
+                <ScalarProperty Name="PROD_CODE" ColumnName="PROD_CODE" />
+                <ScalarProperty Name="CAT" ColumnName="CAT" />
+                <ScalarProperty Name="ARCHIVED" ColumnName="ARCHIVED" />
+                <ScalarProperty Name="NUM_OF_PRODUCTS_TMS" ColumnName="NUM_OF_PRODUCTS_TMS" />
+                <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+                <ScalarProperty Name="ORIGIN" ColumnName="ORIGIN" />
+                <ScalarProperty Name="STOP_NUMBER" ColumnName="STOP_NUMBER" />
+                <ScalarProperty Name="SHIPMENT_ID" ColumnName="SHIPMENT_ID" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="TMP_EDIT" ColumnName="TMP_EDIT" />
+                <ScalarProperty Name="LOAD_SIGN" ColumnName="LOAD_SIGN" />
+                <ScalarProperty Name="CERT_SIGN" ColumnName="CERT_SIGN" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="SUPERVISOR" ColumnName="SUPERVISOR" />
+                <ScalarProperty Name="RETURN_DATE" ColumnName="RETURN_DATE" />
+                <ScalarProperty Name="LOAD_DIFF" ColumnName="LOAD_DIFF" />
+                <ScalarProperty Name="LOAD_DATE" ColumnName="LOAD_DATE" />
+                <ScalarProperty Name="SAFETY" ColumnName="SAFETY" />
+                <ScalarProperty Name="INSTRUCTIONS" ColumnName="INSTRUCTIONS" />
+                <ScalarProperty Name="WELL" ColumnName="WELL" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="CUSTOMER" ColumnName="CUSTOMER" />
+                <ScalarProperty Name="TRAILER_NO" ColumnName="TRAILER_NO" />
+                <ScalarProperty Name="TRUCK_NO" ColumnName="TRUCK_NO" />
+                <ScalarProperty Name="TREATMENT" ColumnName="TREATMENT" />
+                <ScalarProperty Name="SHIP_DATE" ColumnName="SHIP_DATE" />
+                <ScalarProperty Name="OPERATOR" ColumnName="OPERATOR" />
+                <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+                <ScalarProperty Name="WELLSITE" ColumnName="WELLSITE" />
+                <ScalarProperty Name="COLORADO" ColumnName="COLORADO" />
+                <ScalarProperty Name="RADIOACTIVE" ColumnName="RADIOACTIVE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPC_FEEDBACK">
+            <EntityTypeMapping TypeName="USSPModel.IPC_FEEDBACK">
+              <MappingFragment StoreEntitySet="IPC_FEEDBACK">
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CATEGORYID" ColumnName="CATEGORYID" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="DATE_RESOLVED" ColumnName="DATE_RESOLVED" />
+                <ScalarProperty Name="DATE_ASSIGNED" ColumnName="DATE_ASSIGNED" />
+                <ScalarProperty Name="ASSIGNED_TO" ColumnName="ASSIGNED_TO" />
+                <ScalarProperty Name="ASSIGNED_BY" ColumnName="ASSIGNED_BY" />
+                <ScalarProperty Name="RESOLUTION" ColumnName="RESOLUTION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+                <ScalarProperty Name="PRIORITYID" ColumnName="PRIORITYID" />
+                <ScalarProperty Name="PROJECTID" ColumnName="PROJECTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPC_FEEDBACK_CATEGORY">
+            <EntityTypeMapping TypeName="USSPModel.IPC_FEEDBACK_CATEGORY">
+              <MappingFragment StoreEntitySet="IPC_FEEDBACK_CATEGORY">
+                <ScalarProperty Name="SORTORDER" ColumnName="SORTORDER" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="PROJECTID" ColumnName="PROJECTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPC_FEEDBACK_PICKLISTS">
+            <EntityTypeMapping TypeName="USSPModel.IPC_FEEDBACK_PICKLISTS">
+              <MappingFragment StoreEntitySet="IPC_FEEDBACK_PICKLISTS">
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SORTORDER" ColumnName="SORTORDER" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPC_FEEDBACK_PROJUSERS">
+            <EntityTypeMapping TypeName="USSPModel.IPC_FEEDBACK_PROJUSERS">
+              <MappingFragment StoreEntitySet="IPC_FEEDBACK_PROJUSERS">
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="PROJECTID" ColumnName="PROJECTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPC_FEEDBACK_USERMAP">
+            <EntityTypeMapping TypeName="USSPModel.IPC_FEEDBACK_USERMAP">
+              <MappingFragment StoreEntitySet="IPC_FEEDBACK_USERMAP">
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="INFO" ColumnName="INFO" />
+                <ScalarProperty Name="USERLEVEL" ColumnName="USERLEVEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPC_FEEDBACK_USERS">
+            <EntityTypeMapping TypeName="USSPModel.IPC_FEEDBACK_USERS">
+              <MappingFragment StoreEntitySet="IPC_FEEDBACK_USERS">
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
+                <ScalarProperty Name="OU" ColumnName="OU" />
+                <ScalarProperty Name="LOCATIONLDAP" ColumnName="LOCATIONLDAP" />
+                <ScalarProperty Name="LOCKED" ColumnName="LOCKED" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="USERLEVEL" ColumnName="USERLEVEL" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PHRASE_LINKAGE">
+            <EntityTypeMapping TypeName="USSPModel.T_PHRASE_LINKAGE">
+              <MappingFragment StoreEntitySet="T_PHRASE_LINKAGE">
+                <ScalarProperty Name="F_DATE_STAMP" ColumnName="F_DATE_STAMP" />
+                <ScalarProperty Name="F_USER_UPDATED" ColumnName="F_USER_UPDATED" />
+                <ScalarProperty Name="F_USER_ADDED" ColumnName="F_USER_ADDED" />
+                <ScalarProperty Name="F_USER_REQUESTED" ColumnName="F_USER_REQUESTED" />
+                <ScalarProperty Name="F_STATUS" ColumnName="F_STATUS" />
+                <ScalarProperty Name="F_COMMENTS" ColumnName="F_COMMENTS" />
+                <ScalarProperty Name="F_SEVERITY" ColumnName="F_SEVERITY" />
+                <ScalarProperty Name="F_TEXT_TYPE" ColumnName="F_TEXT_TYPE" />
+                <ScalarProperty Name="F_TEXT_CODE" ColumnName="F_TEXT_CODE" />
+                <ScalarProperty Name="F_DATA_CODE" ColumnName="F_DATA_CODE" />
+                <ScalarProperty Name="F_PHRASE_ID" ColumnName="F_PHRASE_ID" />
+                <ScalarProperty Name="F_LINK_ID" ColumnName="F_LINK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PHRASE_TRANSLATIONS">
+            <EntityTypeMapping TypeName="USSPModel.T_PHRASE_TRANSLATIONS">
+              <MappingFragment StoreEntitySet="T_PHRASE_TRANSLATIONS">
+                <ScalarProperty Name="F_DATE_STAMP" ColumnName="F_DATE_STAMP" />
+                <ScalarProperty Name="F_USER_UPDATED" ColumnName="F_USER_UPDATED" />
+                <ScalarProperty Name="F_USER_ADDED" ColumnName="F_USER_ADDED" />
+                <ScalarProperty Name="F_USER_REQUESTED" ColumnName="F_USER_REQUESTED" />
+                <ScalarProperty Name="F_COMMENTS" ColumnName="F_COMMENTS" />
+                <ScalarProperty Name="F_PHRASE" ColumnName="F_PHRASE" />
+                <ScalarProperty Name="F_LANGUAGE" ColumnName="F_LANGUAGE" />
+                <ScalarProperty Name="F_PHRASE_ID" ColumnName="F_PHRASE_ID" />
+                <ScalarProperty Name="F_TRANSLATION_ID" ColumnName="F_TRANSLATION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PROD_TEXT">
+            <EntityTypeMapping TypeName="USSPModel.T_PROD_TEXT">
+              <MappingFragment StoreEntitySet="T_PROD_TEXT">
+                <ScalarProperty Name="F_JOIN_BY" ColumnName="F_JOIN_BY" />
+                <ScalarProperty Name="F_USER_UPDATED" ColumnName="F_USER_UPDATED" />
+                <ScalarProperty Name="F_COUNTER" ColumnName="F_COUNTER" />
+                <ScalarProperty Name="F_DATA_CODE" ColumnName="F_DATA_CODE" />
+                <ScalarProperty Name="F_DATE_STAMP" ColumnName="F_DATE_STAMP" />
+                <ScalarProperty Name="F_TEXT_CODE" ColumnName="F_TEXT_CODE" />
+                <ScalarProperty Name="F_FORMAT" ColumnName="F_FORMAT" />
+                <ScalarProperty Name="F_PRODUCT" ColumnName="F_PRODUCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_MESSAGE">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_MESSAGE">
+              <MappingFragment StoreEntitySet="WSSE_MESSAGE">
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="DATEEND" ColumnName="DATEEND" />
+                <ScalarProperty Name="DATEBEGIN" ColumnName="DATEBEGIN" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSSE_TMS_PRODUCTS">
+            <EntityTypeMapping TypeName="USSPModel.WSSE_TMS_PRODUCTS">
+              <MappingFragment StoreEntitySet="WSSE_TMS_PRODUCTS">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="SHIPID" ColumnName="SHIPID" />
+                <ScalarProperty Name="DATESTAMP" ColumnName="DATESTAMP" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="STOP_NUMBER" ColumnName="STOP_NUMBER" />
+                <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+                <ScalarProperty Name="SOURCE" ColumnName="SOURCE" />
+                <ScalarProperty Name="SHIPMENT_ID" ColumnName="SHIPMENT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
