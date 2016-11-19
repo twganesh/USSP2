@@ -1,0 +1,58 @@
+{
+  "version": 2,
+  "exports": {
+    "SLB.USSP.Core/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.2",
+      "compile": {
+        "bin/Debug/SLB.USSP.Core.dll": {}
+      },
+      "runtime": {
+        "../packages/AutoMapper.5.1.1/lib/net45/AutoMapper.dll": {},
+        "bin/Debug/SLB.USSP.Core.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/SLB.USSP.Core.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "SLB.USSP.Logger/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.2",
+      "compile": {
+        "bin/Debug/SLB.USSP.Logger.dll": {}
+      },
+      "runtime": {
+        "../packages/log4net.2.0.5/lib/net45-full/log4net.dll": {},
+        "bin/Debug/SLB.USSP.Logger.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/SLB.USSP.Logger.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "SLB.USSP.Service/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.2",
+      "compile": {
+        "bin/Debug/SLB.USSP.Service.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/SLB.USSP.Service.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/SLB.USSP.Service.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

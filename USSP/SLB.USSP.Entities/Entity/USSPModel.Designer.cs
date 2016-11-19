@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Ganesh\Personal\GitRepo\Samples\SLB.USSP\SLB.USSP.Entities\Entity\USSPModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Ganesh\Personal\GitRepo\USSP2\USSP\SLB.USSP.Entities\Entity\USSPModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
